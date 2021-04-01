@@ -1,0 +1,50 @@
+a {
+    color: #2196F3;
+    text-decoration: none;
+}
+
+h3 {
+    font-weight: bold;
+}
+
+.mat-h5 {
+    color: grey;
+}
+
+.vertical-divider {
+    width: 50%;
+}
+  
+.left {
+    float: left;
+}
+
+.left-body {
+    padding-left: 32px;
+    padding-right: 32px;
+}
+  
+.right {
+    float: right;
+}
+  
+#top-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#sign-up-form {
+    margin-top: 64px;
+    margin-bottom: 64px;
+}
+
+@media screen and (min-width: 0px) and (max-width: 1024px) {
+    #walking-dog-image {
+        display: none;
+    }
+
+    .vertical-divider {
+        width: 100%;
+    }
+}

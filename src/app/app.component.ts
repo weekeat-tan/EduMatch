@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { faFacebookF, faInstagram, faTwitter, IconDefinition } from '@fortawesome/free-brands-svg-icons'
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'EduMatch';
+  faFacebookF: IconDefinition = faFacebookF;
+  faTwitter: IconDefinition = faTwitter;
+  faInstagram: IconDefinition = faInstagram;
 }

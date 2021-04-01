@@ -1,0 +1,79 @@
+<div class="vertical-divider left">
+    <div class="left-body">
+        <div id="top-bar">
+            <a [routerLink]="['/']">
+                <h3 class="mat-h3">EduMatch</h3>
+            </a>
+
+            <button mat-stroked-button color="primary" [routerLink]="['/sign_in']">
+                Sign In
+            </button>
+        </div>
+
+        <form id="sign-up-form" #signUpForm="ngForm" (ngSubmit)="signUp(signUpForm)">
+            <h5 class="mat-h5">Sign Up</h5>
+            <h1 class="mat-h1">Create an account</h1>
+
+            <div style="width: 100%; display: flex; flex-direction: row; justify-content: space-between;">
+                <mat-form-field appearance="outline" style='width: 50%;'>
+                    <mat-label>First Name</mat-label>
+                    <input id="firstName" name="firstName" #firstName="ngModel" type="text"
+                        [(ngModel)]="newUser.firstName" required=true matInput placeholder="First Name" />
+                </mat-form-field>
+                <!-- <div *ngIf="bookId.invalid && (bookId.dirty || bookId.touched || submitted)" style="color: red;">
+                    <div *ngIf="bookId.errors?.required">
+                        Book ID is required
+                    </div>
+                </div> -->
+
+                &nbsp;&nbsp;
+
+                <mat-form-field appearance="outline" style="width: 50%;">
+                    <mat-label>Last Name</mat-label>
+                    <input id="lastName" name="lastName" #lastName="ngModel" type="text" [(ngModel)]="newUser.lastName"
+                        required=true matInput placeholder="Last Name">
+                </mat-form-field>
+            </div>
+
+            <mat-form-field appearance="outline" style='width: 100%;'>
+                <mat-label>name@email.com</mat-label>
+                <input id="email" name="email" #email="ngModel" type="email" [(ngModel)]="newUser.email" required=true
+                    matInput placeholder="Email">
+                <mat-icon matSuffix>alternate_email</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" style='width: 100%;'>
+                <mat-label>Enter your password</mat-label>
+                <input id="password" name="password" #password="ngModel" type="password" [(ngModel)]="newUser.password"
+                    required=true matInput placeholder="Password">
+                <mat-icon matSuffix>lock</mat-icon>
+            </mat-form-field>
+
+            <button (click)="signUp(signUpForm)" mat-flat-button color="primary" style="width: 100%;">Sign Up</button>
+        </form>
+    </div>
+</div>
+
+<div class="vertical-divider right">
+    <img id="walking-dog-image" src="../../assets/walking_dog.png" alt="Walking Dog" width="100%" height="100%" />
+</div>
+
+<div style="clear: both;"></div>
+
+
+
+<!-- <div class="split left">
+    <div class="centered">
+      <img src="img_avatar2.png" alt="Avatar woman">
+      <h2>Jane Flex</h2>
+      <p>Some text.</p>
+    </div>
+  </div>
+  
+  <div class="split right">
+    <div class="centered">
+      <img src="img_avatar.png" alt="Avatar man">
+      <h2>John Doe</h2>
+      <p>Some text here too.</p>
+    </div>
+  </div> -->

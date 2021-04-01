@@ -1,1 +1,40 @@
 <router-outlet></router-outlet>
+
+<footer class="footer">
+    <div class="content">
+        <h3 class="mat-h3" style="color: #2196F3">EduMatch</h3>
+
+        <div>
+            <a [routerLink]="['/']">
+                <h3 class="mat-h3">Shop</h3>
+            </a>
+            <a [routerLink]="['/']">
+                <h3 class="mat-h3">About</h3>
+            </a>
+            <a [routerLink]="['/']">
+                <h3 class="mat-h3">Blog</h3>
+            </a>
+            <a [routerLink]="['/']">
+                <h3 class="mat-h3">Pricing</h3>
+            </a>
+        </div>
+    </div>
+
+    <div class="content">
+        <h6>&copy; 2021. All rights reserved.</h6>
+
+        <div>
+            <button mat-icon-button color="primary" aria-label="Facebook Icon">
+                <fa-icon [icon]="faFacebookF"></fa-icon>
+            </button>
+            &nbsp;
+            <button mat-icon-button color="primary" aria-label="Twitter Icon">
+                <fa-icon [icon]="faTwitter"></fa-icon>
+            </button>
+            &nbsp;
+            <button mat-icon-button color="primary" aria-label="Instagram Icon">
+                <fa-icon [icon]="faInstagram"></fa-icon>
+            </button>
+        </div>
+    </div>
+</footer>
