@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
@@ -12,19 +13,17 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './routers/app-routing.module';
 import { AppComponent } from './app.component';
 
-import { IndexComponent } from './index/index.component';
-import { FooterComponent } from './footer/footer.component';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
+import { IndexComponent } from './screens/index/index.component';
+import { SignInComponent } from './screens/sign-in/sign-in.component';
+import { SignUpComponent } from './screens/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
-    FooterComponent,
     SignInComponent,
     SignUpComponent
   ],
@@ -34,6 +33,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     BrowserAnimationsModule,
     FormsModule,
     MatButtonModule,
+    MatCardModule,
     MatFormFieldModule,
     MatGridListModule,
     MatIconModule,

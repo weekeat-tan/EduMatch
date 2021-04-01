@@ -1,0 +1,52 @@
+<mat-toolbar>
+    <a id="form-header" [routerLink]="['/']">
+        <h3 class="mat-h3">EduMatch</h3>
+    </a>
+
+    <mat-card id="sign-in-card">
+        <form id="sign-in-form" #signInForm="ngForm" (ngSubmit)="signIn(signInForm)">
+            <div class="sign-in-card-text">
+                <h5 class="mat-h5">Sign In</h5>
+                <h1 class="mat-h1">Join our community</h1>
+            </div>
+
+            <mat-form-field color="accent" appearance="outline">
+                <mat-label>name@email.com</mat-label>
+                <input id="email" name="email" #email="ngModel" type="email" [(ngModel)]="user.email" required=true
+                    matInput placeholder="Email">
+                <mat-icon matSuffix>alternate_email</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field color="accent" appearance="outline">
+                <mat-label>Enter your password</mat-label>
+                <input id="password" name="password" #password="ngModel" type="password" [(ngModel)]="user.password"
+                    required=true matInput placeholder="Password">
+                <mat-icon matSuffix>lock</mat-icon>
+            </mat-form-field>
+
+            <button (click)="signIn(signInForm)" mat-flat-button color="primary">Sign In</button>
+        </form>
+
+        <div class="sign-in-card-text">
+            <h5 class="mat-h5">or continue with</h5>
+        </div>
+
+        <button class="alt-sign-in-button" mat-stroked-button style="margin-bottom: 8px;">
+            <mat-icon matPrefix color="primary">facebook</mat-icon>
+            Sign in with Facebook
+        </button>
+
+        <br />
+
+        <button class="alt-sign-in-button" mat-stroked-button>
+            <fa-icon [icon]="faGoogle" style="margin-right: 6px; font-size: 24px; color:#2196F3"></fa-icon>
+            Sign in with Google
+        </button>
+    </mat-card>
+
+    <div id="form-footer">
+        <a class="form-footer-link" [routerLink]="['/']">Police Privacy</a>
+        and
+        <a class="form-footer-link" [routerLink]="['/']">Terms of Use</a>
+    </div>
+</mat-toolbar>
