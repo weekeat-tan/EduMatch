@@ -27,18 +27,6 @@ h3 {
 .right {
     float: right;
 }
-
-.response-message {
-    margin-top: 16px;
-}
-
-.success-message {
-    color: #4CAF50;
-}
-
-.error-message {
-    color: #F44336;
-}
   
 #top-bar {
     padding: 32px;

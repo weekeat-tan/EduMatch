@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 
 import { IconDefinition, faFacebookF, faGoogle } from '@fortawesome/free-brands-svg-icons';
 
-import { User } from '../../classes/user';
 import { UserService } from '../../services/user.service';
+import { SessionService } from '../../services/session.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -17,11 +17,21 @@ export class SignInComponent implements OnInit {
   faGoogle: IconDefinition = faGoogle;
 
   submitted: boolean;
-  user: User;
+  signInEmail: string;
+  signInPassword: string;
 
-  constructor(private router: Router, private userService: UserService) {
+  resultSuccess: boolean;
+  resultError: boolean;
+  message: string;
+
+  constructor(private router: Router, private userService: UserService, private sessionService: SessionService) {
     this.submitted = false;
-    this.user = new User();
+    this.signInEmail = "";
+    this.signInPassword = "";
+
+    this.resultSuccess = false;
+    this.resultError = false;
+    this.message = "";
   }
 
   ngOnInit(): void {
@@ -31,8 +41,31 @@ export class SignInComponent implements OnInit {
     this.submitted = true;
 
     if (signInForm.valid) {
-      // Sign in process
-      this.router.navigate(["/index"]);
+      this.userService.login(this.signInEmail, this.signInPassword).subscribe(
+        response => {
+          console.log(response);
+          this.resultSuccess = true;
+          this.resultError = false;
+
+          this.sessionService.setIsLogin(true);
+          this.sessionService.setToken(response.auth_token);
+
+          this.signInEmail = "";
+          this.signInPassword = "";
+
+          signInForm.resetForm();
+          this.submitted = false;
+
+          this.router.navigate(["/index"]);
+        },
+        error => {
+          console.log(error);
+          this.resultError = true;
+          this.resultSuccess = false;
+          this.message = error;
+        }
+      )
+
     }
   }
 }

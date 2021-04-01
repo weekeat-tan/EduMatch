@@ -11,3 +11,15 @@ body {
     padding-left: 32px;
     padding-right: 32px; */
 }
+
+.response-message {
+    margin-top: 16px;
+}
+
+.success-message {
+    color: #4CAF50;
+}
+
+.error-message {
+    color: #F44336;
+}

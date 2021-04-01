@@ -3,7 +3,7 @@
         <h3 class="mat-h3">EduMatch</h3>
     </a>
 
-    <div>
+    <div *ngIf="!isLogin">
         <button mat-stroked-button color="primary" [routerLink]="['/sign_in']">
             Log In
         </button>    
@@ -11,6 +11,14 @@
         <button mat-flat-button color="primary" [routerLink]="['/sign_up']">
             Sign Up
         </button>
+    </div>
+
+    <div *ngIf="isLogin">
+        Welcome, {{authToken}}!
+
+        <button mat-stroked-button color="primary" [routerLink]="['/sign_in']">
+            Log Out
+        </button>    
     </div>
 </div>
 

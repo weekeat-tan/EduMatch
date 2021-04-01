@@ -12,6 +12,13 @@ button {
     font-weight: normal;
 }
 
+.mat-h4 {
+    font-size: 15px;
+    font-weight: normal;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
 .mat-h5 {
     font-size: 14px;
     color: grey;

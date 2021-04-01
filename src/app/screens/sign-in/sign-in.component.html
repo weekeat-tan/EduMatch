@@ -12,20 +12,37 @@
 
             <mat-form-field color="accent" appearance="outline">
                 <mat-label>name@email.com</mat-label>
-                <input id="email" name="email" #email="ngModel" type="email" [(ngModel)]="user.email" required=true
+                <input id="email" name="email" #email="ngModel" type="email" [(ngModel)]="signInEmail" required=true
                     matInput placeholder="Email">
                 <mat-icon matSuffix>alternate_email</mat-icon>
+
+                <mat-hint class="error-message" *ngIf="email.invalid && (email.dirty || email.touched || submitted)">
+                    <div *ngIf="email.errors?.required">
+                        Email is required
+                    </div>
+                </mat-hint>
             </mat-form-field>
 
             <mat-form-field color="accent" appearance="outline">
                 <mat-label>Enter your password</mat-label>
-                <input id="password" name="password" #password="ngModel" type="password" [(ngModel)]="user.password"
+                <input id="password" name="password" #password="ngModel" type="password" [(ngModel)]="signInPassword"
                     required=true matInput placeholder="Password">
                 <mat-icon matSuffix>lock</mat-icon>
+
+                <mat-hint class="error-message"
+                    *ngIf="password.invalid && (password.dirty || password.touched || submitted)">
+                    <div *ngIf="password.errors?.required">
+                        Password is required
+                    </div>
+                </mat-hint>
             </mat-form-field>
 
-            <button (click)="signIn(signInForm)" mat-flat-button color="primary">Sign In</button>
+            <button type="submit" mat-flat-button color="primary">Sign In</button>
         </form>
+
+        <div class="response-message error-message" *ngIf="resultError">
+            <h4 class="mat-h4">{{message}}</h4>
+        </div>
 
         <div class="sign-in-card-text">
             <h5 class="mat-h5">or continue with</h5>

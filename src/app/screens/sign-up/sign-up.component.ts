@@ -16,14 +16,15 @@ export class SignUpComponent implements OnInit {
 
   resultSuccess: boolean;
   resultError: boolean;
-  message: string = "Your user account (ID: ${response.id}) has been created successfully"
-
+  message: string;
+  
   constructor(private router: Router, private userService: UserService) {
     this.submitted = false;
     this.newUser = new User();
 
     this.resultSuccess = false;
     this.resultError = false;
+    this.message = "";
   }
 
   ngOnInit(): void {

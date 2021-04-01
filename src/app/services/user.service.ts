@@ -30,9 +30,33 @@ export class UserService {
     );
   }
 
+  login(email: string, password: string): Observable<any> {
+    let loginReq = {
+      "email": email,
+      "password": password
+    };
+
+    return this.httpClient.post<any>(this.baseUrl + "/auth/token/login/", loginReq, httpOptions).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   private handleError(error: HttpErrorResponse) {
-    let errorMessage: string = `A HTTP ${error.status} error has occurred: ${error.error.email}`;
+    let errorMessage: string;
     console.log(error);
+
+    if (error.error instanceof ErrorEvent) {
+      errorMessage = `An unknown error has occurred: ${error.error.message}`
+    } else {
+      errorMessage = `A HTTP ${error.status} error has occurred: `;
+      if (error.error.email != null) {
+        errorMessage += error.error.email;
+      } else if (error.error.non_field_errors) {
+        errorMessage += error.error.non_field_errors;
+      } else {
+        errorMessage += error.error.message;
+      }
+    }
 
     return throwError(errorMessage);
   }
