@@ -17,21 +17,30 @@
             <div style="width: 100%; display: flex; flex-direction: row; justify-content: space-between;">
                 <mat-form-field color="accent" appearance="outline" style='width: 50%;'>
                     <mat-label>First Name</mat-label>
-                    <input id="firstName" name="firstName" #firstName="ngModel" type="text"
-                        [(ngModel)]="newUser.firstName" required=true matInput placeholder="First Name" />
+                    <input id="firstName" name="firstName" #firstName="ngModel" type="text" required="true"
+                        [(ngModel)]="newUser.firstName" matInput placeholder="First Name" />
+
+                    <mat-hint class="error-message"
+                        *ngIf="firstName.invalid && (firstName.dirty || firstName.touched || submitted)">
+                        <div *ngIf="firstName.errors?.required">
+                            Fisrt Name is required
+                        </div>
+                    </mat-hint>
                 </mat-form-field>
-                <!-- <div *ngIf="bookId.invalid && (bookId.dirty || bookId.touched || submitted)" style="color: red;">
-                    <div *ngIf="bookId.errors?.required">
-                        Book ID is required
-                    </div>
-                </div> -->
 
                 &nbsp;&nbsp;
 
                 <mat-form-field color="accent" appearance="outline" style="width: 50%;">
                     <mat-label>Last Name</mat-label>
                     <input id="lastName" name="lastName" #lastName="ngModel" type="text" [(ngModel)]="newUser.lastName"
-                        required=true matInput placeholder="Last Name">
+                        required="true" matInput placeholder="Last Name">
+
+                    <mat-hint class="error-message"
+                        *ngIf="lastName.invalid && (lastName.dirty || lastName.touched || submitted)">
+                        <div *ngIf="lastName.errors?.required">
+                            Last Name is required
+                        </div>
+                    </mat-hint>
                 </mat-form-field>
             </div>
 
@@ -40,6 +49,12 @@
                 <input id="email" name="email" #email="ngModel" type="email" [(ngModel)]="newUser.email" required=true
                     matInput placeholder="Email">
                 <mat-icon matSuffix>alternate_email</mat-icon>
+
+                <mat-hint class="error-message" *ngIf="email.invalid && (email.dirty || email.touched || submitted)">
+                    <div *ngIf="email.errors?.required">
+                        Email is required
+                    </div>
+                </mat-hint>
             </mat-form-field>
 
             <mat-form-field color="accent" appearance="outline" style='width: 100%;'>
@@ -47,10 +62,26 @@
                 <input id="password" name="password" #password="ngModel" type="password" [(ngModel)]="newUser.password"
                     required=true matInput placeholder="Password">
                 <mat-icon matSuffix>lock</mat-icon>
+
+                <mat-hint class="error-message"
+                    *ngIf="password.invalid && (password.dirty || password.touched || submitted)">
+                    <div *ngIf="password.errors?.required">
+                        Password is required
+                    </div>
+                </mat-hint>
             </mat-form-field>
 
-            <button (click)="signUp(signUpForm)" mat-flat-button color="primary" style="width: 100%;">Sign Up</button>
+            <button type="submit" mat-flat-button color="primary" style="width: 100%; margin-top: 16px;">Sign
+                Up</button>
         </form>
+
+        <div class="response-message success-message" *ngIf="resultSuccess">
+            <h4 class="mat-h4">{{message}}</h4>
+        </div>
+
+        <div class="response-message error-message" *ngIf="resultError">
+            <h4 class="mat-h4">{{message}}</h4>
+        </div>
     </div>
 </div>
 

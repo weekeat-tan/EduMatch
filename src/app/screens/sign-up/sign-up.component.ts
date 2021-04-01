@@ -14,9 +14,16 @@ export class SignUpComponent implements OnInit {
   submitted: boolean;
   newUser: User;
 
-  constructor(private router: Router, private userService: UserService) { 
+  resultSuccess: boolean;
+  resultError: boolean;
+  message: string = "Your user account (ID: ${response.id}) has been created successfully"
+
+  constructor(private router: Router, private userService: UserService) {
     this.submitted = false;
     this.newUser = new User();
+
+    this.resultSuccess = false;
+    this.resultError = false;
   }
 
   ngOnInit(): void {
@@ -24,11 +31,29 @@ export class SignUpComponent implements OnInit {
 
   signUp(signUpForm: NgForm) {
     this.submitted = true;
+    this.resultSuccess = false;
+    this.resultError = false;
 
     if (signUpForm.valid) {
-      // Sign up process
-      this.router.navigate(["/sign_in"]);
+      this.userService.createNewUser(this.newUser).subscribe(
+        response => {
+          console.log(response);
+          this.resultSuccess = true;
+          this.resultError = false;
+          this.message = `Your user account (ID: ${response.id}) has been created successfully`;
+
+          this.newUser = new User();
+
+          signUpForm.resetForm();
+          this.submitted = false;
+        },
+        error => {
+          console.log(error);
+          this.resultError = true;
+          this.resultSuccess = false;
+          this.message = error;
+        }
+      )
     }
   }
 }
-
