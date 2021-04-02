@@ -1,27 +1,85 @@
 # EduMatch
+## Project Description
+EduMatch is a front-end project as part of HackerTrail's recruitment process.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
+## Technology Stack
+- Front-end - [Angular]
 
-## Development server
+## Project Dependencies
+Check that you have `Node.js` and `npm` installed by running the following commands:
+```sh
+node --version
+npm --version
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+If you do not have `Node.js` installed, navigate to [Node.js] to download the latest release. Installing `Node.js` will automatically install `npm`.
 
-## Code scaffolding
+To run the application, you must have `Angular CLI` installed on your local machine:
+```sh
+npm install -g @angular/cli
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+With `Angular CLI` installed, you can proceed with running the project in a local development server with the following commands:
+```sh
+cd <YOUR_PROJECT_DIRECTORY>/EduMatch
+npm install
+ng serve --open
+```
+This will install all the necessary dependencies and run the project at `http://localhost:4200/`.
+
+## Project Design
+EduMatch is developed based off [Angular Material] (built on top of [Google's Material Design]).
+
+### Theming
+Theming is adopted to ensure the application's design is consistent, with the color scheme chosen from [Google's Material Color Style].
+- Primary - Blue
+- Accent - Indigo
+- Warn - Red
+
+In addition, styling that is common across the application is stored under `styles.css` to allow better reusability and consistent look and feel.
+
+### Design Pattern
+Since Angular adopts Model–View–ViewModel (MVVM) design pattern:
+- Model - TypeScript Objects
+- View - Angular Template (`*.component.html`)
+- ViewModel - Angular Component Class (`*.component.ts`)
+- Front-end Logic - Angular Service Class (`*.service.ts`)
+
+The project is categorised into the following directories:
+- `classes` to store the Model objects.
+- `guards` to store the Route Guards
+    - To authenticate if a user has the appropriate rights to access a certain page
+- `routers` to store the Routing modules
+    - For navigation/routing.
+- `screens` to store the View templates and ViewModel classes.
+- `services` to store the Service classes.
+
+Application URLs:
+- `/index` - Landing Page (Task 1)
+- `/sign_in` - Login Page (Task 2)
+- `/sign_up` - Registration Page (Task 3)
+
+Important Note:
+- Necessary `NgModule`s are imported in the root module (i.e., `app.module.ts`).
+- Root module bootstraps the main application view, called the root component (i.e., `app.component.css`, `app.component.html`, `app.component.ts`).
+- The root component maintains all the navigation routes for the project.
+- The root component view contains a footer element to display the footer of the application across all the views.
+
+### Dummy API Handling
+- `HttpClient` is used in `user.service.ts` service class to invoke RESTful API exposed by the backend server on https://nicson-test.6ac1e6al400ce.ap-southeast-1.cs.amazonlightsail.com.
+
+### Assumptions
+- Once a user is logged in, he/she cannot navigate to `/sign_in` and `/sign_up`.
+- If a user tries to navigate to any invalid URL, the router will navigate the user back to the `/index` page.
+- To make the application slightly responsive and adaptive, the design of the Landing page and Registration page changes slightly when the breakpoint is met (in this case, `1200px` screen width).
+
 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+   [Angular]: <https://angular.io/>
+   [Node.js]: <https://nodejs.org/en/>
+   [Angular Material]: <https://material.angular.io/>
+   [Google's Material Design]: <https://material.io/>
+   [Google's Material Color Style]: <https://material.io/archive/guidelines/style/color.html#color-color-palette>
