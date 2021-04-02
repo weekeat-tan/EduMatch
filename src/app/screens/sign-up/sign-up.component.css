@@ -27,7 +27,7 @@ h3 {
     margin-top: 64px;
 }
 
-@media screen and (min-width: 0px) and (max-width: 1024px) {
+@media screen and (min-width: 0px) and (max-width: 1200px) {
     #walking-dog-image {
         display: none;
     }
