@@ -75,7 +75,7 @@ Important Note:
 - If a user tries to navigate to an invalid URL, the router will navigate the user back to the `/index` page.
 - To make the application slightly responsive and adaptive, the design of the Landing page and Registration page changes slightly when the breakpoint is met (in this case, `1200px` screen width).
 
-   [EduMatch]: <https://weekeat-tan.github.io/EduMatch/>
+   [EduMatch]: <https://weekeat-tan.github.io/EduMatch/index>
    [Angular]: <https://angular.io/>
    [Node.js]: <https://nodejs.org/en/>
    [Angular Material]: <https://material.angular.io/>
