@@ -6,7 +6,10 @@ import { catchError } from 'rxjs/operators';
 import { User } from '../classes/user';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': ''
+  })
 };
 
 @Injectable({
@@ -25,9 +28,9 @@ export class UserService {
       "password": newUser.password
     }
 
-    return this.httpClient.post<any>(this.baseUrl + "/auth/users/", createNewUserReq, httpOptions).pipe(
-      catchError(this.handleError)
-    );
+    return this.httpClient
+      .post<any>(`${this.baseUrl}/auth/users/`, createNewUserReq, httpOptions)
+      .pipe(catchError(this.handleError));
   }
 
   login(email: string, password: string): Observable<any> {
@@ -36,9 +39,18 @@ export class UserService {
       "password": password
     };
 
-    return this.httpClient.post<any>(this.baseUrl + "/auth/token/login/", loginReq, httpOptions).pipe(
-      catchError(this.handleError)
-    );
+    return this.httpClient
+      .post<any>(`${this.baseUrl}/auth/token/login/`, loginReq, httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
+  getUserDetails(authToken: string): Observable<any> {
+    httpOptions.headers = httpOptions.headers.set("Authorization", `Token ${authToken}`);
+    console.log(httpOptions);
+
+    return this.httpClient
+      .get<any>(`${this.baseUrl}/auth/users/me/`, httpOptions)
+      .pipe(catchError(this.handleError))
   }
 
   private handleError(error: HttpErrorResponse) {
@@ -48,11 +60,13 @@ export class UserService {
     if (error.error instanceof ErrorEvent) {
       errorMessage = `An unknown error has occurred: ${error.error.message}`
     } else {
-      errorMessage = `A HTTP ${error.status} error has occurred: `;
-      if (error.error.email != null) {
+      errorMessage = `A HTTP ${error.status} error has occurred:\n`;
+      if (error.error.email) {
         errorMessage += error.error.email;
       } else if (error.error.non_field_errors) {
         errorMessage += error.error.non_field_errors;
+      } else if (error.error.detail) {
+        errorMessage += error.error.detail;
       } else {
         errorMessage += error.error.message;
       }

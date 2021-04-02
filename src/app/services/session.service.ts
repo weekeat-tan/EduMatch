@@ -22,6 +22,6 @@ export class SessionService {
   }
 
   getIsLogin(): boolean {
-    return sessionStorage.isLogin;
+    return sessionStorage.isLogin === "true";
   }
 }

@@ -14,9 +14,9 @@
     </div>
 
     <div *ngIf="isLogin">
-        Welcome, {{authToken}}!
+        Welcome, {{userEmail}} ({{userId}})!
 
-        <button mat-stroked-button color="primary" [routerLink]="['/sign_in']">
+        <button mat-stroked-button color="primary" (click)="signOut()">
             Log Out
         </button>    
     </div>

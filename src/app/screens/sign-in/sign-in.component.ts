@@ -20,7 +20,6 @@ export class SignInComponent implements OnInit {
   signInEmail: string;
   signInPassword: string;
 
-  resultSuccess: boolean;
   resultError: boolean;
   message: string;
 
@@ -29,7 +28,6 @@ export class SignInComponent implements OnInit {
     this.signInEmail = "";
     this.signInPassword = "";
 
-    this.resultSuccess = false;
     this.resultError = false;
     this.message = "";
   }
@@ -44,7 +42,6 @@ export class SignInComponent implements OnInit {
       this.userService.login(this.signInEmail, this.signInPassword).subscribe(
         response => {
           console.log(response);
-          this.resultSuccess = true;
           this.resultError = false;
 
           this.sessionService.setIsLogin(true);
@@ -61,11 +58,10 @@ export class SignInComponent implements OnInit {
         error => {
           console.log(error);
           this.resultError = true;
-          this.resultSuccess = false;
           this.message = error;
         }
       )
-
     }
+    
   }
 }
