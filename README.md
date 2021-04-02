@@ -2,7 +2,7 @@
 ## Project Description
 [EduMatch] is a front-end project as part of HackerTrail's recruitment process.
 
-*Note: When you first try to login or register an account, the application may prompt you that you are accessing a dangerous site. Please simply accept and access the page.*
+***Note**: When you first try to login or register an account (via RESTful API call), the application may prompt you that you are accessing a dangerous site. Please accept and access the page.*
 
 ## Technology Stack
 - Front-end - [Angular]
