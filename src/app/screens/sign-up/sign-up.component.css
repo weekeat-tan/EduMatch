@@ -11,25 +11,13 @@ h3 {
     color: grey;
 }
 
-.vertical-divider {
-    width: 50%;
-}
-  
-.left {
-    float: left;
-}
-
 .left-body {
-    padding-left: 32px;
-    padding-right: 32px;
-}
-  
-.right {
-    float: right;
+    padding-top: 32px;
+    padding-left: 64px;
+    padding-right: 64px;
 }
   
 #top-bar {
-    padding: 32px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

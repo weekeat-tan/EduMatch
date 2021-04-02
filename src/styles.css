@@ -12,6 +12,18 @@ body {
     padding-right: 32px; */
 }
 
+.vertical-divider {
+    width: 50%;
+}
+  
+.left {
+    float: left;
+}
+  
+.right {
+    float: right;
+}
+
 .response-message {
     margin-top: 16px;
 }

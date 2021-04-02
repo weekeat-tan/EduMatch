@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IconDefinition, faKey, faTerminal, faThLarge } from '@fortawesome/free-solid-svg-icons';
 
 import { SessionService } from '../../services/session.service';
 import { UserService } from '../../services/user.service';
@@ -9,13 +10,22 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
+  faTerminal: IconDefinition = faTerminal;
+  faThLarge: IconDefinition = faThLarge;
+  faKey: IconDefinition = faKey;
+
   isLogin: boolean;
   authToken: string;
 
   userEmail: string;
   userId: string;
 
-  constructor(private sessionService: SessionService, private userService: UserService) { }
+  // fileToUpload: File;
+  fileName: string;
+
+  constructor(private sessionService: SessionService, private userService: UserService) {
+    this.fileName = "No file chosen";
+  }
 
   ngOnInit(): void {
     this.isLogin = this.sessionService.getIsLogin();
@@ -46,5 +56,9 @@ export class IndexComponent implements OnInit {
 
     this.sessionService.setToken("");
     this.authToken = "";
+  }
+
+  handleFileInput(files: FileList): void {
+    this.fileName = files.item(0).name;
   }
 }

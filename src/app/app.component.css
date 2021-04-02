@@ -18,8 +18,10 @@ h6 {
 }
 
 footer {
-    padding: 32px;
-    margin-top: 64px;
+    padding-left: 64px;
+    padding-right: 64px;
+    padding-top: 64px;
+    padding-bottom: 32px;
 }
 
 .content {

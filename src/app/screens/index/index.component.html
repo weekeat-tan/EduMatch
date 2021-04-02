@@ -6,7 +6,7 @@
     <div *ngIf="!isLogin">
         <button mat-stroked-button color="primary" [routerLink]="['/sign_in']">
             Log In
-        </button>    
+        </button>
         &nbsp;
         <button mat-flat-button color="primary" [routerLink]="['/sign_up']">
             Sign Up
@@ -14,14 +14,157 @@
     </div>
 
     <div *ngIf="isLogin">
-        Welcome, {{userEmail}} ({{userId}})!
-
+        <span style="font-weight: bold;">Welcome</span>, {{userEmail}} [{{userId}}]
+        &nbsp;&nbsp;
         <button mat-stroked-button color="primary" (click)="signOut()">
             Log Out
-        </button>    
+        </button>
     </div>
 </div>
 
-<div>
+<div id="top-content">
+    <div class="vertical-divider left">
+        <div class="left-body">
+            <img id="building" src="../../assets/building.png" alt="HackerTrail" width="576px" height="600px" />
+        </div>
+    </div>
 
+    <div class="vertical-divider right">
+        <div class="right-body">
+
+            <div id="features-content">
+                <p id="features-label">Lorem ipsum</p>
+                <h1 class="mat-h1">Key Features</h1>
+
+                <table class="feature-content">
+                    <tr class="feature-row">
+                        <td class="feature-icon-container" rowspan="2">
+                            <fa-icon class="feature-icon" [icon]="faTerminal"></fa-icon>
+                        </td>
+                        <td class="feature-title">Easy to customize</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-description">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                            Veritatis expedita animi.
+                        </td>
+                    </tr>
+                </table>
+
+                <table class="feature-content">
+                    <tr class="feature-row">
+                        <td class="feature-icon-container" rowspan="2">
+                            <fa-icon class="feature-icon" [icon]="faThLarge"></fa-icon>
+                        </td>
+                        <td class="feature-title">Flexible software</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-description">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                            Veritatis expedita animi.
+                        </td>
+                    </tr>
+                </table>
+
+                <table class="feature-content">
+                    <tr class="feature-row">
+                        <td class="feature-icon-container" rowspan="2">
+                            <fa-icon class="feature-icon" [icon]="faKey"></fa-icon>
+                        </td>
+                        <td class="feature-title">Best access for all of the resources</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-description">
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                            Veritatis expedita animi.
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
+
+<div style="clear: both;"></div>
+
+<div id="bottom-content">
+    <div class="vertical-divider left">
+        <div class="left-body">
+            <p style="color: grey;">Contact us</p>
+            <h1 class="mat-h1" style="width: 250px;">We will be glad to hear from you!</h1>
+
+            <p class="contact-header">Phone</p>
+            <p class="contact-info">+65 6544 - 3030</p>
+
+            <p class="contact-header">E-mail</p>
+            <p class="contact-info">info@example.com</p>
+
+            <p class="contact-header">Address</p>
+            <p>3 Shenton Way</p>
+            <p>Singapore, 068805</p>
+        </div>
+    </div>
+
+    <div class="vertical-divider right">
+        <div class="right-body">
+            <form id="contact-form" #contactForm="ngForm">
+                <div>
+                    <label style="font-weight: bold;">Department: </label>
+                    <mat-radio-group>
+                        <mat-radio-button value="support">Support</mat-radio-button>
+                        <mat-radio-button value="sales">Sales</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+
+                <mat-form-field color="accent" appearance="fill" style='width: 100%;'>
+                    <mat-label>Subject</mat-label>
+                    <input id="subject" name="subject" type="text" matInput placeholder="Subject">
+                </mat-form-field>
+
+                <mat-form-field color="accent" appearance="fill" style='width: 100%;'>
+                    <mat-label>Name</mat-label>
+                    <input id="name" name="name" type="text" matInput placeholder="Name">
+                </mat-form-field>
+
+                <mat-form-field color="accent" appearance="fill" style='width: 100%;'>
+                    <mat-label>name@email.com</mat-label>
+                    <input id="email" name="email" type="email" matInput placeholder="Email">
+                </mat-form-field>
+
+                <mat-form-field color="accent" appearance="fill" style="width: 100%;">
+                    <mat-label>Message...</mat-label>
+                    <textarea id="message" name="message" matInput placeholder="Message"></textarea>
+                </mat-form-field>
+
+                <table style="background-color: whitesmoke; width: 100%;" (click)="fileInput.click()">
+                    <input #fileInput hidden="true" type="file" (change)="handleFileInput($event.target.files)" />
+                    <tr>
+                        <td style="width: 100px; padding-left: 8px; background-color: lightgrey;">
+                            Choose file
+                        </td>
+                        <td style="padding-left: 8px;">{{fileName}}</td>
+                        <td>
+                            <button class="right" mat-flat-button style="background-color: grey; color: white;">
+                                Browse
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+
+                <div style="clear: both;"></div>
+
+                <div style="margin-top: 12px">
+                    <mat-checkbox id="terms-conditions" class="left" name="terms-conditions" color="accent">
+                        I agree to terms and conditions
+                    </mat-checkbox>
+                    
+                    <button class="right" mat-flat-button color="primary">Submit</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<div style="clear: both;"></div>
