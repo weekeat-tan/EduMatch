@@ -28,15 +28,15 @@ ng serve --open
 This will install all the necessary dependencies and run the project at `http://localhost:4200/`.
 
 ## Project Design
-EduMatch is developed based off [Angular Material] (built on top of [Google's Material Design]).
+EduMatch is developed based on [Angular Material] (built on top of [Google's Material Design]).
 
 ### Theming
-Theming is adopted to ensure the application's design is consistent, with the color scheme chosen from [Google's Material Color Style].
+Theming is adopted to ensure the application's design is consistent, with the colour scheme chosen from [Google's Material Color Style].
 - Primary - Blue
 - Accent - Indigo
 - Warn - Red
 
-In addition, styling that is common across the application is stored under `styles.css` to allow better reusability and consistent look and feel.
+Besides, styling common across the application is stored under `styles.css` to allow better reusability and a consistent look and feel.
 
 ### Design Pattern
 Since Angular adopts Model–View–ViewModel (MVVM) design pattern:
@@ -48,7 +48,7 @@ Since Angular adopts Model–View–ViewModel (MVVM) design pattern:
 The project is categorised into the following directories:
 - `classes` to store the Model objects.
 - `guards` to store the Route Guards
-    - To authenticate if a user has the appropriate rights to access a certain page
+    - To authenticate if a user has the appropriate rights to access a particular page
 - `routers` to store the Routing modules
     - For navigation/routing.
 - `screens` to store the View templates and ViewModel classes.
@@ -63,14 +63,14 @@ Important Note:
 - Necessary `NgModule`s are imported in the root module (i.e., `app.module.ts`).
 - Root module bootstraps the main application view, called the root component (i.e., `app.component.css`, `app.component.html`, `app.component.ts`).
 - The root component maintains all the navigation routes for the project.
-- The root component view contains a footer element to display the footer of the application across all the views.
+- The root component view contains a footer element to display the application's footer across all the views.
 
-### Dummy API Handling
-- `HttpClient` is used in `user.service.ts` service class to invoke RESTful API exposed by the backend server on https://nicson-test.6ac1e6al400ce.ap-southeast-1.cs.amazonlightsail.com.
+### Dummy API Handling (Bonus Task)
+- `HttpClient` is used in `user.service.ts` service class to invoke RESTful API exposed by the back-end server on https://nicson-test.6ac1e6al400ce.ap-southeast-1.cs.amazonlightsail.com.
 
 ### Assumptions
 - Once a user is logged in, he/she cannot navigate to `/sign_in` and `/sign_up`.
-- If a user tries to navigate to any invalid URL, the router will navigate the user back to the `/index` page.
+- If a user tries to navigate to an invalid URL, the router will navigate the user back to the `/index` page.
 - To make the application slightly responsive and adaptive, the design of the Landing page and Registration page changes slightly when the breakpoint is met (in this case, `1200px` screen width).
 
 
