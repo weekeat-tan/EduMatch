@@ -1,6 +1,8 @@
 # EduMatch
 ## Project Description
-EduMatch is a front-end project as part of HackerTrail's recruitment process.
+[EduMatch] is a front-end project as part of HackerTrail's recruitment process.
+
+***Note**: When you first try to login or register an account (via RESTful API call), the application may prompt you that you are accessing a dangerous site. Please accept and access the page.*
 
 ## Technology Stack
 - Front-end - [Angular]
@@ -73,11 +75,7 @@ Important Note:
 - If a user tries to navigate to an invalid URL, the router will navigate the user back to the `/index` page.
 - To make the application slightly responsive and adaptive, the design of the Landing page and Registration page changes slightly when the breakpoint is met (in this case, `1200px` screen width).
 
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
+   [EduMatch]: <https://weekeat-tan.github.io/EduMatch/>
    [Angular]: <https://angular.io/>
    [Node.js]: <https://nodejs.org/en/>
    [Angular Material]: <https://material.angular.io/>
